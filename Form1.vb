@@ -18,19 +18,32 @@ Public Class Form1
         bmp = New Bitmap(Img.Width, Img.Height)
 
         SpriteMap = New CImage
-        SpriteMap.OpenImage("C:\Users\user\Downloads\BC_spritesheet.bmp")
+        spritemap.OpenImage("C:\Users\user\Downloads\bubble crab.bmp")
 
         spritemap.CreateMask(spritemask)
 
         BCIntro = New CArrFrame
         '17 intro frame
-        BCIntro.Insert(100, 200, 1, 13, 65, 79, 3)
-        BCIntro.Insert(100, 200, 134, 13, 204, 79, 3)
-        BCIntro.Insert(100, 200, 274, 0, 343, 77, 5)
-        BCIntro.Insert(100, 200, 134, 13, 204, 79, 3)
-        BCIntro.Insert(100, 200, 1, 13, 65, 79, 5)
-        BCIntro.Insert(100, 200, 2, 160, 75, 233, 3)
-        'BCIntro.Insert(100, 100, 156, 144, 194, 191, 1)
+        BCIntro.Insert(360, 480, 640, 200, 740, 300, 1) 'fall
+        BCIntro.Insert(360, 455, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 430, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 405, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 380, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 355, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 330, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 305, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 280, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 255, 640, 200, 740, 300, 1)
+        BCIntro.Insert(360, 230, 640, 200, 740, 300, 1)
+        BCIntro.Insert(357, 7, 640, 25, 740, 100, 1) 'reach floor
+        BCIntro.Insert(145, 361, 400, 350, 530, 500, 1) 'crouch
+        BCIntro.Insert(270, 361, 540, 300, 670, 500, 1) 'mini claw
+        BCIntro.Insert(390, 361, 660, 300, 780, 500, 1) 'big claw
+
+
+
+        'BCIntro.Insert(130, 100, 400, 100, 545, 200, 1) 'ini bc standing on the right side of screen
+        'BCIntro.Insert(360, 480, 640, 200, 740, 300, 1) 'ini bc falling from top on the right side of screen
 
         DisplayImg()
         ResizeImg()
@@ -137,6 +150,14 @@ Public Class Form1
         h = PictureBox1.Height
 
         Me.ClientSize = New Size(w, h)
+
+    End Sub
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+
+        PictureBox1.Refresh()
+        BC.Update()
+        DisplayImg()
+
 
     End Sub
 End Class

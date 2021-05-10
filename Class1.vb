@@ -7,6 +7,8 @@ End Structure
 Public Enum StateBubbleCrab
     Intro
     Walking
+    Leap
+    LaserClaw
     BubbleShield
 End Enum
 Public Enum FaceDir
@@ -146,7 +148,21 @@ Public Class CCharacter
     End Sub
 
     Public Sub Update()
+        Select Case CurrState
+            Case StateBubbleCrab.Intro
+                GetNextFrame()
+                If FrameIdx = 0 And CurrFrame = 0 Then
+                    State(StateBubbleCrab.Walking, 1)
+                    Vx = 0
+                    Vy = 0
+                End If
 
+
+
+
+
+
+        End Select
 
     End Sub
 
